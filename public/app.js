@@ -1,7 +1,14 @@
 // create method to call after DOM is loaded
 var app = function(){
-  addNewCat("Skimble", "biscuits", "https://78.media.tumblr.com/dac36e229eb82bb67d4df709f87cffee/tumblr_oqe5k399Lv1r2fvxjo1_500.jpg");
-}
+  addNewCat(CATS_ARRAY);
+};
+
+var CATS_ARRAY = [
+  {name: "Boba", food: "Sock fluff", image: "http://66.media.tumblr.com/d1f01bbe0150fda0c40d2151c5eaeac8/tumblr_odlqqskjj61v9cejwo1_400.jpg"},
+  {name: "Barnaby", food: "Tuna", image: "https://68.media.tumblr.com/88d0fcf2b84a7b098dda839130597569/tumblr_okuo4teiql1uhevdso1_1280.jpg"},
+  {name: "Max", food: "Whiskas Temptations", image: "http://66.media.tumblr.com/7c5784ea89369c780e782bf10c60315a/tumblr_npb0hlYwhV1u63jaco1_1280.jpg"},
+  {name: "Skimble", food: "biscuits", image: "https://78.media.tumblr.com/dac36e229eb82bb67d4df709f87cffee/tumblr_oqe5k399Lv1r2fvxjo1_500.jpg"}
+];
 
 // create new ul of class "cats"
 var createNewUl= function (){
@@ -44,13 +51,15 @@ var combineElements = function(section, newUl, nameLi, newFoodLi, newImageLi){
   }
 
 // add new cat
-var addNewCat = function(name, food, image){
+var addNewCat = function(array){
   var newUl = createNewUl();
-  var newName  = newNameLi(name);
-  var newFood = newFoodLi(food);
-  var newImage = newImageLi(image);
-  var location = document.querySelector('#cats');
-  combineElements(location, newUl, newName, newFood, newImage);
+  for (var cat of array){
+    var newName  = newNameLi(cat.name);
+    var newFood = newFoodLi(cat.food);
+    var newImage = newImageLi(cat.image);
+    var location = document.querySelector('#cats');
+    combineElements(location, newUl, newName, newFood, newImage);
+  }
 }
 
 
