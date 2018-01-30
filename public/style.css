@@ -6,3 +6,18 @@
 .red-quote{
   color: red;
 }
+
+html{
+  width: 1000px;
+  margin: 0 auto;
+}
+
+li{
+  color: blue;
+  list-style-type: none;
+  font-size: 20px;
+}
+
+img{
+  padding-bottom: 50px;
+}
